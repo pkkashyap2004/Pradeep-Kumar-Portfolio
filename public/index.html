@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pradeep Kumar - Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <h1 class="logo">Pradeep Kumar</h1>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#resume">Resume</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+            <div class="social-links">
+                <a href="#" class="social-icon">LinkedIn</a>
+                <a href="#" class="social-icon">GitHub</a>
+                <a href="#" class="social-icon">Twitter</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Welcome to My Portfolio</h2>
+            <p>Full Stack Developer | Creative Thinker</p>
+            <a href="#about" class="btn">Learn More</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <img src="https://via.placeholder.com/200x200?text=Profile+Photo" alt="Pradeep Kumar" class="profile-img">
+            <p>I am Pradeep Kumar, a passionate full stack developer with expertise in HTML, CSS, JavaScript, and backend technologies. I love creating responsive and animated websites.</p>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>My Skills</h2>
+            <div class="skill">
+                <span>💻 HTML</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 100%"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <span>🎨 CSS</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 100%"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <span>⚡ JavaScript</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 50%"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <span>🟢 Node.js</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 50%"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <span>🗄️ MySQL</span>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 50%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume" class="resume">
+        <div class="container">
+            <h2>Resume</h2>
+            <p>Download my resume: <a href="#" class="btn">Download PDF</a></p>
+            <!-- Add resume content or embed -->
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form id="queryForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="location" class="location">
+        <div class="container">
+            <h2>Location</h2>
+            <p>Based in Nighasan, Lakhimpur Kheri, Uttar Pradesh, India</p>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14300!2d81.05!3d27.95!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399a4b4b4b4b4b4b%3A0x4b4b4b4b4b4b4b4b!2sNighasan%2C%20Uttar%20Pradesh%2C%20India!5e0!3m2!1sen!2sin!4v1640000000!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Pradeep Kumar. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#" class="social-icon">LinkedIn</a>
+                <a href="#" class="social-icon">GitHub</a>
+                <a href="#" class="social-icon">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/model.js"></script>
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
