@@ -12,6 +12,10 @@ body {
     background-color: #f4f4f4;
 }
 
+body.modal-open {
+    overflow: hidden;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -156,6 +160,147 @@ section.animate {
     align-self: flex-start;
 }
 
+/* Custom Success / Error Popup */
+.custom-message-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    animation: modalFadeIn 0.2s ease-out;
+}
+
+.message-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.58);
+    backdrop-filter: blur(3px);
+}
+
+.message-card {
+    position: relative;
+    width: min(430px, 100%);
+    padding: 34px 28px 28px;
+    border-radius: 24px;
+    background: #fff;
+    text-align: center;
+    box-shadow: 0 22px 60px rgba(0, 0, 0, 0.28);
+    transform: translateY(0);
+    animation: modalSlideUp 0.25s ease-out;
+}
+
+.message-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #777;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.message-close:hover {
+    background: #f2f2f2;
+}
+
+.message-icon {
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 52px;
+    font-weight: 700;
+}
+
+.custom-message-modal.success .message-icon {
+    color: #fff;
+    background: linear-gradient(135deg, #38d94a, #19b932);
+    box-shadow: 0 10px 24px rgba(25, 185, 50, 0.28);
+}
+
+.custom-message-modal.error .message-icon {
+    color: #fff;
+    background: linear-gradient(135deg, #ff6b5f, #e53935);
+    box-shadow: 0 10px 24px rgba(229, 57, 53, 0.28);
+}
+
+.message-card h3 {
+    margin-bottom: 8px;
+    font-size: 30px;
+    color: #222;
+}
+
+.message-card p {
+    margin: 0 auto 24px;
+    max-width: 340px;
+    color: #666;
+    font-size: 16px;
+}
+
+.message-action {
+    min-width: 150px;
+    padding: 12px 28px;
+    border: 0;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.custom-message-modal.success .message-action {
+    background: #28cf39;
+    box-shadow: 0 8px 18px rgba(40, 207, 57, 0.25);
+}
+
+.custom-message-modal.error .message-action {
+    background: #e94b43;
+    box-shadow: 0 8px 18px rgba(233, 75, 67, 0.25);
+}
+
+.message-action:hover {
+    transform: translateY(-1px);
+}
+
+.message-action:active {
+    transform: translateY(0);
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes modalSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.custom-message-modal.closing {
+    animation: modalFadeIn 0.18s ease-in reverse;
+}
+
+.custom-message-modal.closing .message-card {
+    animation: modalSlideUp 0.18s ease-in reverse;
+}
+
 /* Location */
 iframe {
     width: 100%;
@@ -236,5 +381,38 @@ iframe {
 @keyframes fillProgress {
     to {
         width: var(--progress-width);
+    }
+}
+
+@media (max-width: 700px) {
+    .nav-container {
+        padding: 0.8rem 1rem;
+    }
+
+    .nav-links li {
+        margin-left: 0.8rem;
+    }
+
+    .social-links {
+        display: none;
+    }
+
+    .hero-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .message-card {
+        padding: 30px 20px 24px;
+        border-radius: 20px;
+    }
+
+    .message-icon {
+        width: 78px;
+        height: 78px;
+        font-size: 44px;
+    }
+
+    .message-card h3 {
+        font-size: 26px;
     }
 }
