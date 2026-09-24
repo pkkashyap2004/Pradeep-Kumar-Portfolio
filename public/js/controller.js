@@ -7,9 +7,13 @@ class QueryController {
     }
 
     init() {
-        this.view.form.addEventListener('submit', this.handleSubmit.bind(this));
+        if (this.view.form) {
+            this.view.form.addEventListener('submit', this.handleSubmit.bind(this));
+        }
+
         this.view.animateSections();
         this.view.animateProgressBars();
+        this.view.setupMobileMenu();
         this.setupSmoothScroll();
         this.setupNavHighlight();
     }
@@ -17,49 +21,52 @@ class QueryController {
     async handleSubmit(e) {
         e.preventDefault();
         const { name, email, message } = this.view.getFormData();
+
         try {
             const result = await this.model.submitQuery(name, email, message);
             if (result.success) {
                 this.view.showMessage('Query submitted successfully!', 'success');
                 this.view.clearForm();
             } else {
-                this.view.showMessage(result.error, 'error');
+                this.view.showMessage(result.error || 'Failed to submit query.', 'error');
             }
         } catch (error) {
-            this.view.showMessage('Failed to submit query.', 'error');
+            console.error('Contact form error:', error);
+            this.view.showMessage('Failed to submit query. Please try again.', 'error');
         }
     }
 
     setupSmoothScroll() {
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (!targetId || targetId === '#') return;
+
+                const target = document.querySelector(targetId);
+                if (!target) return;
+
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
     }
 
     setupNavHighlight() {
-        const sections = document.querySelectorAll('section');
+        const sections = document.querySelectorAll('main section[id]');
         const navLinks = document.querySelectorAll('.nav-links a');
 
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 60) {
-                    current = section.getAttribute('id');
-                }
-            });
+        if (!sections.length || !navLinks.length || !('IntersectionObserver' in window)) return;
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').includes(current)) {
-                    link.classList.add('active');
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    const activeLink = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+                    if (activeLink) activeLink.classList.add('active');
                 }
             });
-        });
+        }, { threshold: 0.45, rootMargin: '-70px 0px -20% 0px' });
+
+        sections.forEach(section => observer.observe(section));
     }
 }
