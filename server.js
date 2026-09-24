@@ -10,18 +10,17 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Supabase configuration.
-// Set these environment variables in your deployment/local environment:
-// SUPABASE_URL
-// SUPABASE_PUBLISHABLE_KEY
+// The secret key is used only by this server and must never be exposed
+// to frontend/browser code.
 const supabaseUrl = process.env.SUPABASE_URL;
-const supabasePublishableKey = process.env.SUPABASE_PUBLISHABLE_KEY;
+const supabaseSecretKey = process.env.SUPABASE_SECRET_KEY;
 
-if (!supabaseUrl || !supabasePublishableKey) {
-  console.error('Missing SUPABASE_URL or SUPABASE_PUBLISHABLE_KEY environment variables.');
+if (!supabaseUrl || !supabaseSecretKey) {
+  console.error('Missing SUPABASE_URL or SUPABASE_SECRET_KEY environment variables.');
   process.exit(1);
 }
 
-const supabase = createClient(supabaseUrl, supabasePublishableKey);
+const supabase = createClient(supabaseUrl, supabaseSecretKey);
 
 app.locals.supabase = supabase;
 
