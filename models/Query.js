@@ -1,14 +1,15 @@
-const db = require('../config/db');
-
 class Query {
-  static save(name, email, message, callback) {
-    const sql = 'INSERT INTO queries (name, email, message) VALUES (?, ?, ?)';
-    db.query(sql, [name, email, message], callback);
+  static save(supabase, name, email, message) {
+    return supabase
+      .from('queries')
+      .insert([{ name, email, message }]);
   }
 
-  static getAll(callback) {
-    const sql = 'SELECT * FROM queries ORDER BY created_at DESC';
-    db.query(sql, callback);
+  static getAll(supabase) {
+    return supabase
+      .from('queries')
+      .select('*')
+      .order('created_at', { ascending: false });
   }
 }
 
