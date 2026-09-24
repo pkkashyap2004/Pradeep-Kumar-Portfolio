@@ -37,7 +37,30 @@ body.modal-open {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
     padding: 1rem 2rem;
+}
+
+.logo {
+    text-decoration: none;
+}
+
+.menu-toggle {
+    display: none;
+    border: 0;
+    background: transparent;
+    width: 44px;
+    height: 44px;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    margin: 5px 0;
+    border-radius: 3px;
+    background: #333;
 }
 
 .logo {
@@ -120,12 +143,16 @@ body.modal-open {
 /* Sections */
 section {
     padding: 5rem 0;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.6s ease;
+    position: relative;
 }
 
-section.animate {
+.reveal {
+    opacity: 0;
+    transform: translateY(45px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.animate {
     opacity: 1;
     transform: translateY(0);
 }
@@ -375,26 +402,147 @@ iframe {
     background: linear-gradient(90deg, #007bff, #0056b3);
     border-radius: 10px;
     width: 0;
-    animation: fillProgress 2s ease-in-out forwards;
+}
+
+.progress.fill {
+    animation: fillProgress 1.4s ease-out forwards;
 }
 
 @keyframes fillProgress {
-    to {
-        width: var(--progress-width);
-    }
+    from { width: 0; }
+    to { width: var(--progress-width); }
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: minmax(180px, 280px) 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.profile-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.about-copy p {
+    margin-bottom: 1rem;
+}
+
+.hero .eyebrow {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    font-size: 0.85rem;
+}
+
+.hero-content {
+    width: 100%;
 }
 
 @media (max-width: 700px) {
+    #navbar {
+        z-index: 10000;
+    }
+
     .nav-container {
-        padding: 0.8rem 1rem;
+        padding: 0.7rem 1rem;
+        position: relative;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-left: auto;
+        z-index: 10002;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 0.5rem 1rem 1rem;
+        background: #fff;
+        box-shadow: 0 10px 20px rgba(0,0,0,.08);
+        transform: translateY(-12px);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+    }
+
+    .nav-links.open {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
     }
 
     .nav-links li {
-        margin-left: 0.8rem;
+        margin: 0;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 0.8rem 0.5rem;
     }
 
     .social-links {
         display: none;
+    }
+
+    .hero {
+        min-height: 100svh;
+        height: auto;
+        padding: 7rem 1rem 4rem;
+    }
+
+    .hero-content h1,
+    .hero-content h2 {
+        font-size: clamp(2rem, 9vw, 2.7rem);
+        line-height: 1.15;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        text-align: center;
+    }
+
+    .profile-img {
+        width: min(190px, 55vw) !important;
+        height: min(190px, 55vw) !important;
+    }
+
+    section {
+        padding: 4rem 0;
+    }
+
+    .container {
+        width: 100%;
+        padding: 0 16px;
+    }
+
+    #queryForm input,
+    #queryForm textarea,
+    #queryForm button {
+        width: 100%;
+    }
+
+    #queryForm button {
+        align-self: stretch;
+    }
+
+    iframe {
+        height: 280px;
     }
 
     .hero-content h2 {
@@ -414,5 +562,20 @@ iframe {
 
     .message-card h3 {
         font-size: 26px;
+    }
+
+    .message-card p {
+        font-size: 15px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
