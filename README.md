@@ -1,4 +1,4 @@
-# Pradeep Kumar Portfolio
+# shresthportfolio
 
 A full stack portfolio website built with HTML, CSS, JavaScript, Node.js, Express, and MySQL. Features responsive design, animations, and MVC architecture.
 
