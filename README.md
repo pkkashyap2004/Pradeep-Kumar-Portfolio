@@ -1,48 +1,83 @@
-# shresthportfolio
+# Pradeep Kumar — Featured Projects
 
-A full stack portfolio website built with HTML, CSS, JavaScript, Node.js, Express, and MySQL. Features responsive design, animations, and MVC architecture.
+Welcome to my project portfolio. This repository contains the personal portfolio website; the six featured projects below remain in their own independent repositories.
 
-## Features
+I build data-driven applications, AI-enabled products, and full-stack web solutions.
 
-- Responsive mobile design
-- Smooth animations
-- Navbar with navigation and social links
-- Hero section
-- About section
-- Resume section
-- Contact form with backend storage
-- Location section with map
-- Professional footer
+## ⭐ Featured projects
 
-## Tech Stack
+These are my six selected projects, grouped by the work they demonstrate.
 
-- Frontend: HTML, CSS, JavaScript (MVC pattern)
-- Backend: Node.js, Express
-- Database: MySQL
-- Animations: CSS animations and JavaScript
+### 1. AI & Product Analytics
 
-## Setup
+#### [Shresth Products Analyzer](https://github.com/pkkashyap2004/Shresth-Products-Analyzer)
+AI-powered product analytics platform.
+- **Stack:** React + Vite, Node.js + Express, MongoDB/Mongoose, Python FastAPI, pandas, scikit-learn.
+- **Focus:** Product analytics and an integrated analytics service.
+- **Repository:** Public.
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
+### 2. Data Analytics & Business Intelligence
 
-2. Set up MySQL database:
-   - Start MySQL service
-   - Create database and user as per config/db.js
+#### [RetailPulse](https://github.com/pkkashyap2004/RetailPulse)
+Retail analytics workflow with preprocessing, feature generation, customer segmentation, forecasting baseline, inventory review, tests, and a Streamlit dashboard.
+- **Stack:** Python, pandas, Streamlit, pytest.
+- **Focus:** Retail data analysis and decision support.
+- **Note:** Forecasting and inventory outputs are documented as baseline demonstrations with stated data limitations.
+- **Repository:** Public.
 
-3. Run the server:
-   ```bash
-   npm start
-   ```
+#### [Pizza Sales Analysis — MySQL](https://github.com/pkkashyap2004/Pizza-Sales-Analysis-MySql)
+SQL-based pizza sales analysis project.
+- **Stack:** MySQL.
+- **Focus:** Sales data exploration and business metrics.
+- **Repository:** Public.
 
-4. Open http://localhost:3000 in your browser.
+### 3. Healthcare & Applied AI
 
-## Project Structure
+#### [Medical Test Analyzer](https://github.com/pkkashyap2004/Medical_Test_Analyzer)
+Medical test analysis application.
+- **Focus:** Exploring structured interpretation and explanation of medical test information.
+- **Repository:** Private. Access is limited to authorized GitHub users.
+- **Important:** This is an informational software project, not a medical diagnostic service. AI output must not replace professional medical advice.
 
-- `public/` - Static files (HTML, CSS, JS)
-- `models/` - Database models
-- `controllers/` - Route handlers
-- `config/` - Database configuration
-- `server.js` - Main server file
+### 4. Full-Stack Product Development
+
+#### [Deepak Digital Computer Studio](https://github.com/pkkashyap2004/Deepak-Digital-Computer-Studio)
+MERN commerce application for a digital computer studio, with a responsive storefront, catalogue search, product/order models, cart, checkout integration, authentication, and transactional email integration.
+- **Stack:** MongoDB, Express, React, Node.js.
+- **Focus:** End-to-end web application engineering.
+- **Repository:** Public.
+
+### 5. Personal Website
+
+#### [Pradeep Kumar Portfolio](https://github.com/pkkashyap2004/Pradeep-Kumar-Portfolio)
+My personal portfolio website.
+- **Stack:** HTML, CSS, JavaScript, Node.js, Express, MySQL.
+- **Focus:** Personal profile, projects, skills, and contact information.
+- **Repository:** Public.
+
+## Project map
+
+| Area | Featured repositories |
+|---|---|
+| AI & product analytics | Shresth Products Analyzer |
+| Data analytics & BI | RetailPulse; Pizza Sales Analysis |
+| Healthcare application | Medical Test Analyzer |
+| Full-stack development | Deepak Digital Computer Studio |
+| Personal portfolio | Pradeep Kumar Portfolio |
+
+## Engineering principles
+
+- Keep each project independently installable and maintainable.
+- Document architecture, setup, environment variables, and known limitations.
+- Never commit API keys, passwords, personal data, or production credentials.
+- Preserve raw datasets; write cleaned and derived outputs to separate processed locations.
+- Validate applications with tests and reproducible build steps before describing them as production-ready.
+
+## Repository links
+
+- [GitHub profile](https://github.com/pkkashyap2004)
+- [All repositories](https://github.com/pkkashyap2004?tab=repositories)
+
+---
+
+*The project descriptions above summarize repository documentation and do not claim that every feature has been independently production-verified.*
